@@ -1,0 +1,22 @@
+name: Docker smoke checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t local-project .
+      - run: docker run --rm --entrypoint python local-project -c 'import os; assert os.getuid() != 0'
+      - name: Runtime smoke test
+        run: |
+          docker run --name smoke local-project
+          docker cp smoke:/app/confusion_matrix.png /tmp/confusion_matrix.png
+          docker cp smoke:/app/feature_importance.png /tmp/feature_importance.png
+          test -s /tmp/confusion_matrix.png
+          test -s /tmp/feature_importance.png
