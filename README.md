@@ -6,7 +6,7 @@ A machine learning project that predicts which customers are likely to cancel th
 
 ## 🎯 The Business Problem
 
-Customer churn — when a subscriber cancels their plan — is one of the most costly problems for any subscription-based business. Acquiring a new customer can cost **5–7× more** than retaining an existing one.
+Customer churn — when a subscriber cancels their plan — is one of the most costly problems for any subscription-based business. Customer acquisition and retention costs vary by business.
 
 By predicting churn **before** it happens, a business can:
 - Offer targeted discounts or re-engagement campaigns
@@ -39,7 +39,7 @@ This project builds a classification model to answer: **"Will this customer chur
 | `monthly_spend`   | Amount paid per month (USD)              |
 | `churned`         | **Target** — 1 = churned, 0 = retained   |
 
-> **Key Insight:** Customers with low tenure and high support tickets churn most frequently — exactly what the model learns to detect.
+> The synthetic dataset illustrates a possible association between tenure, support tickets and churn.
 
 ---
 
@@ -58,14 +58,14 @@ This project builds a classification model to answer: **"Will this customer chur
 
 **1. Clone the repository**
 ```bash
-git clone git clone https://github.com/pratuyshswain/Customer-Churn-Prediction.git
+git clone https://github.com/pratuyshswain/Customer-Churn-Prediction.git
 
 cd Customer-Churn-Prediction
 ```
 
 **2. Install dependencies**
 ```bash
-pip install pandas scikit-learn
+python -m pip install pandas scikit-learn matplotlib seaborn
 ```
 
 **3. Run the prediction pipeline**
@@ -73,21 +73,7 @@ pip install pandas scikit-learn
 python churn_prediction.py
 ```
 
-**Expected output:**
-```
-Accuracy: 100.00%
-
-Classification Report:
-              precision    recall  f1-score   support
-           0       1.00      1.00      1.00         2
-           1       1.00      1.00      1.00         1
-
-Feature Importances (higher = more influential):
-tenure_months      0.45
-support_tickets    0.30
-monthly_logins     0.15
-monthly_spend      0.10
-```
+**Output:** The script prints accuracy, a classification report and feature importance, and saves two charts. Results depend on the dataset and split.
 
 ---
 
@@ -102,8 +88,8 @@ A **Random Forest** trains hundreds of Decision Trees on random subsets of the d
 
 ## 📌 Key Takeaways
 
-- **Feature Importance** revealed that `tenure_months` and `support_tickets` are the strongest predictors of churn — aligning with real-world business intuition.
-- Even on a small 15-row dataset, the model generalizes correctly, demonstrating the power of structured pipelines.
+- **Feature importance** describes the fitted model on this sample, not causal effects.
+- The 15-row synthetic dataset illustrates the workflow only; the small test set cannot establish real-world generalization.
 
 ---
 
@@ -115,3 +101,7 @@ Aspiring Data Scientist | [LinkedIn](https://www.linkedin.com/in/pratyusha-swain
 ---
 
 *This project was built as part of a data science portfolio to demonstrate end-to-end ML pipeline skills.*
+
+## License
+
+See [LICENSE](LICENSE) (MIT).
