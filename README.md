@@ -58,14 +58,14 @@ This project builds a classification model to answer: **"Will this customer chur
 
 **1. Clone the repository**
 ```bash
-git clone git clone https://github.com/pratuyshswain/Customer-Churn-Prediction.git
+git clone https://github.com/pratuyshswain/Customer-Churn-Prediction.git
 
 cd Customer-Churn-Prediction
 ```
 
 **2. Install dependencies**
 ```bash
-pip install pandas scikit-learn
+python -m pip install pandas scikit-learn matplotlib seaborn
 ```
 
 **3. Run the prediction pipeline**
@@ -73,7 +73,7 @@ pip install pandas scikit-learn
 python churn_prediction.py
 ```
 
-**Expected output:**
+**Illustrative output (not a performance guarantee):**
 ```
 Accuracy: 100.00%
 
@@ -103,7 +103,7 @@ A **Random Forest** trains hundreds of Decision Trees on random subsets of the d
 ## 📌 Key Takeaways
 
 - **Feature Importance** revealed that `tenure_months` and `support_tickets` are the strongest predictors of churn — aligning with real-world business intuition.
-- Even on a small 15-row dataset, the model generalizes correctly, demonstrating the power of structured pipelines.
+- The 15-row synthetic dataset illustrates the workflow only; the small test set cannot establish real-world generalization.
 
 ---
 
@@ -115,3 +115,7 @@ Aspiring Data Scientist | [LinkedIn](https://www.linkedin.com/in/pratyusha-swain
 ---
 
 *This project was built as part of a data science portfolio to demonstrate end-to-end ML pipeline skills.*
+
+## License
+
+See [LICENSE](LICENSE) (MIT).
