@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent
 def main():
     # ── 1. LOAD ──────────────────────────────────────────────────────────────────
     # Read the CSV file into a DataFrame (rows = customers, columns = features)
-    df = pd.read_csv(ROOT / "Sample_customers.csv")
+    df = pd.read_csv(ROOT / "Sample_customers.csv", header=None, names=["customer_id", "tenure_months", "monthly_logins", "support_tickets", "monthly_spend", "churned"])
 
     # ── 2. SPLIT ─────────────────────────────────────────────────────────────────
     # X = input features the model learns from  |  y = the label we want to predict
